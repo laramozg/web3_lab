@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Лабораторная 3</title>
+    <link rel="shortcut icon" href="https://m9snoi.net/files/forums_imgs/none.jpg" />
+    <link rel="stylesheet" type="text/css" href="css/button.css"/>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="css/svg.css"/>
+    <link rel="stylesheet" type="text/css" href="css/table.css"/>
+    <link rel="stylesheet" type="text/css" href="css/form.css"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" type=""></script>
+</h:head>
+
+<h:body>
+    <div class="hat">
+        Вариант 386<br/>Мозговая Лариса<br/>Группа P32311
+        <div class="time" id="current-time"></div>
+    </div>
+    <div class="base">
+        <img src="images/cattt.gif" id="cat" alt="cat"/>
+        <h:form id="form">
+            <div class="xyr_in">
+                <div class="x_in">
+                    <div class="chooseX">Выберите X:</div>
+                    <div class="value-choose-block">
+                        <p:spinner id="xVal" max="5" min="-5" value="#{point.XVal}"  widgetVar="x" immediate="true"
+                                   validator="xValidator" stepFactor="1" converterMessage="X - число!">
+                        </p:spinner>
+                    </div>
+                </div>
+
+                <div class="text">
+                    <div>Введите Y [-3;5]:</div>
+                    <div class="value-choose-block">
+                        <h:inputText id="yVal" value="#{point.YVal}" converterMessage="Y - число!">
+                            <f:validator validatorId="yValidator"/>
+                        </h:inputText>
+                    </div>
+                    <div class="error">
+                        <h:message for="yVal"/>
+                    </div>
+                </div>
+
+                <div class="radioR">
+                    <h:outputLabel class="value-header" styleClass="headers" value="    Выберите R:    "/>
+                    <div class="chooseR">
+                        <div class="links">
+                            <h:commandLink class="rValue" type="button" value="  1  " action="#{point.setRVal(1)}">
+                                <f:ajax render="rVal rVal-view"/>
+                            </h:commandLink>
+                            <h:commandLink class="rValue" type="button" value="  2  " action="#{point.setRVal(2)}">
+                                <f:ajax render="rVal rVal-view"/>
+                            </h:commandLink>
+                            <h:commandLink class="rValue" type="button" value="  3  " action="#{point.setRVal(3)}">
+                                <f:ajax render="rVal rVal-view"/>
+                            </h:commandLink>
+                            <h:commandLink class="rValue" type="button" value="  4  " action="#{point.setRVal(4)}">
+                                <f:ajax render="rVal rVal-view"/>
+                            </h:commandLink>
+                            <h:commandLink class="rValue" type="button" value="  5  " action="#{point.setRVal(5)}">
+                                <f:ajax render="rVal rVal-view"/>
+                            </h:commandLink>
+                            <p:ajax event="click" execute="rVal" update="graph-image"/>
+                            <h:inputHidden id="rVal" value="#{point.RVal}"
+                                           converterMessage="X - число!">
+                                <f:validator validatorId="rValidator"/>
+                            </h:inputHidden>
+                            <h:message for="rVal" style="color:#960a0a"/>
+                        </div>
+                        <div class="chosenValue" id="rHeadVal">
+                            <h:outputText id="rVal-view" name="rValFinal" value="${point.RVal}"/>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="send_but">
+                    <h:commandButton id="send" value="Добавить" action="#{hitBean.addHit(point)}"/>
+                    <h:commandButton id="clear" value="Очистить" action="#{hitBean.clearHits()}"/>
+                    <div class="error">
+                        <h:message for="xVal"/>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+
+        <div class="graph" >
+            <h:panelGroup class="area-wrapper" id="graph-image">
+                <img src="images/areas.png" alt="area" />
+                    <ui:repeat var="hit"
+                               value="#{hitBean.hits.stream().filter((x)->x.rval==point.RVal).toList()}"
+                               varStatus="status">
+                        <div class="dot"
+                             style="top: ${200 - hit.yval*175/(1.25*hit.rval)}px;
+                                        left: ${200 + hit.xval*175/(hit.rval)}px; background: ${hit.ishit ? 'green':'red'};"></div>
+                    </ui:repeat>
+            </h:panelGroup>
+        </div>
+
+
+        <div class="table">
+            <h:dataTable value="#{hitBean.hits}" var="hit">
+                <h:column>
+                    <f:facet name="header">X</f:facet>
+                    #{hit.xval}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Y</f:facet>
+                    #{hit.yval}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">R</f:facet>
+                    #{hit.rval}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Current time</f:facet>
+                    #{hit.currenttime}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Execution time</f:facet>
+                    #{hit.executiontime}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Hit</f:facet>
+                    #{hit.ishit}
+                </h:column>
+            </h:dataTable>
+
+        </div>
+        <h:button id="toStart" value="На стартовую" outcome="toStart">
+        </h:button>
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+</h:body>
+</html>

@@ -1,0 +1,34 @@
+.table{
+    margin-left: 3%;
+    margin-top: 3%;
+    width: 840px;
+    box-shadow: 0 4px 16px #ccc;
+
+}
+.table th{
+    width: 140px;
+    height: 40px;
+    border: solid 1px white;
+    border-collapse: collapse;
+
+}
+.table tr{
+    background-color: rgb(222, 171, 156);
+
+}
+
+#form\:send:hover, #toStart:hover, #redirect:hover{
+    color: white;
+}
+.header {
+    background-color: rgb(222, 171, 156);
+}
+
+.table table th, .table table td {
+    width: 140px;
+    height: 40px;
+    border: solid 1px white;
+    border-collapse: collapse;
+    text-align: center;
+
+}

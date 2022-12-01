@@ -1,0 +1,132 @@
+.xyr_in {
+    width: 600px;
+    height: 230px;
+    background-color: rgb(2, 120, 128);
+    margin-left: 3%;
+    margin-top: 1%;
+    border-width: thick;
+    border-style: double;
+    border-color: #fffbff;
+    border-radius: 50px;
+    padding: 1%;
+    box-shadow: 0 0 6px;
+
+}
+
+.x_in {
+    margin-left: 0.5%;
+    margin-top: 0.5%;
+    width: 48%;
+    height: 40%;
+    border-style: double;
+    border-color: white;
+    background-color: rgb(101, 213, 217);
+    border-top-left-radius: 50px;
+    text-align: right;
+    padding: 1%;
+    float: left;
+    box-shadow: inset 0 0 6px;
+}
+
+#form\:yVal{
+    width: 98%;
+    height: 20px;
+    border-radius: 20px;
+    padding-left: 1%;
+    margin-top: 4%;
+
+}
+
+button, select, input:focus {
+    outline: none;
+}
+
+.text {
+    width: 48%;
+    height: 40%;
+    border-style: double;
+    border-color: white;
+    background-color: rgb(101, 213, 217);
+    border-top-right-radius: 50px;
+    text-align: left;
+    padding: 1%;
+    float: right;
+    margin-top: 0.5%;
+    margin-right: 0.5%;
+    box-shadow: inset 0 0 6px;
+}
+.chooseX{
+    margin-left: 60%;
+}
+#form\:xVal {
+    font-weight: bold;
+    color: white;
+    margin-top: 2%;
+}
+#form\:slider_x{
+    margin-top: 6%;
+    margin-left: 33%;
+}
+
+.radioR {
+    width: 48%;
+    height: 50%;
+    border-style: double;
+    border-color: white;
+    background-color: rgb(101, 213, 217);
+    border-bottom-left-radius: 50px;
+    padding: 1%;
+    float: left;
+    text-align: right;
+    margin-top: 2.5%;
+    margin-left: 0.5%;
+    box-shadow: inset 0 0 6px;
+}
+
+#form\:rVal {
+    width: 98%;
+    height: 35%;
+    padding-left: 1%;
+    margin-top: 4%;
+}
+
+.error {
+    color: red;
+    margin: 0 0 0 20px;
+}
+.value-choose-block {
+    display: grid;
+    grid-auto-flow: column;
+    justify-self: center;
+}
+
+.values:nth-child(1) .value-choose-block {
+    gap: 1rem;
+}
+
+.headers{
+    display:inline-block;
+}
+
+.chooseR{
+    display:inline-block;
+}
+.links{
+    display:inline-block;
+}
+.rValue{
+    text-decoration: none;
+    color: #002c48;
+}
+
+.chosenValue{
+    display:inline-block;
+    border: 2px solid #002c48;
+    padding: 0.2rem;
+    width: 4.25rem;
+    height: calc(2.25rem + 2px) ;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+
+}

@@ -1,0 +1,27 @@
+.graph{
+    position: absolute;
+    right: 3%;
+    top: 17%;
+    border-width: thick;
+    border-style: double;
+    border-color: #fffbff;
+    border-radius: 50px;
+    opacity: 0.75;
+    width: 420px;
+    height: 420px;
+    padding: 0.4%
+
+}
+.area-wrapper img {
+    width: 100%;
+    height: 100%;
+}
+
+.dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #8b0000;
+    pointer-events: none;
+}

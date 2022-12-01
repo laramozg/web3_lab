@@ -1,0 +1,52 @@
+#send_but{
+    width: 48%;
+    height: 50%;
+    border-style: double;
+    border-color: white;
+    background-color: rgb(101, 213, 217);
+    border-bottom-right-radius: 50px;
+    float: right;
+    margin-top: 2.5%;
+    margin-right: 0.5%;
+    padding-top: 3.5%;
+    padding-left: 5%;
+    box-shadow: inset 0 0 6px;
+}
+
+#form\:send, #form\:clear {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 30px;
+    border-color: black;
+    background-image: -webkit-linear-gradient(left, #fff9f6, #b16f66);
+    box-shadow: 0 0 6px grey;
+    font-weight: bold;
+
+}
+
+#redirect {
+    left: 44%;
+    position: absolute;
+    margin-top: 20%;
+    font-weight: bold;
+    font-size: xx-large;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 30px;
+    border-color: white;
+    background-color: white;
+    box-shadow: 0 0 15px black;
+}
+#toStart{
+    position: absolute;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 30px;
+    border-color: black;
+    background-image: -webkit-linear-gradient(left, #fff9f6, #b16f66);
+    box-shadow: 0 0 6px grey;
+    left: 85%;
+    top: 85%;
+    font-weight: bold;
+    font-size: large;
+}
